@@ -38,7 +38,14 @@ app.get('/history', (req, res) => {
 app.use(express.urlencoded({ extended: false }));
 
 app.post('/contact/send-message', (req, res) => {
-    res.json(req.body);
+    const { author, sender, title, message } = req.body;
+
+    if(author && sender && title && message) {
+        res.send('Your email has been sent!');
+    }
+    else {
+        res.send('You can\'t leave fields empty!');
+    }
 });
 
 app.use((req, res) => {

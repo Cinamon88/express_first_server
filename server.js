@@ -38,6 +38,10 @@ app.use((req, res) => {
     res.status(404).send('404 not found...');
 });
 
+app.post('/contact/send-message', (req, res) => {
+    res.json(req.body);
+});
+
 app.listen(8000, () => {
   console.log('Server is running on port: 8000');
 });

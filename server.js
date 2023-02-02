@@ -9,6 +9,8 @@ app.set('view engine', '.hbs');
 
 app.use(express.static(path.join(__dirname, '/public')));
 
+
+
 app.get('/', (req, res) => {
     res.render('index');
 });
@@ -33,13 +35,14 @@ app.get('/history', (req, res) => {
     res.render('history');
 });
 
-
-app.use((req, res) => {
-    res.status(404).send('404 not found...');
-});
+app.use(express.urlencoded({ extended: false }));
 
 app.post('/contact/send-message', (req, res) => {
     res.json(req.body);
+});
+
+app.use((req, res) => {
+    res.status(404).send('404 not found...');
 });
 
 app.listen(8000, () => {

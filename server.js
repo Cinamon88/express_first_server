@@ -26,7 +26,7 @@ app.get('/contact', (req, res) => {
 });
 
 app.get('/info', (req, res) => {
-    res.render('info');
+    res.render('info', { layout: 'dark' });
 });
 
 app.get('/history', (req, res) => {

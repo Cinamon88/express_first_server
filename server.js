@@ -41,10 +41,10 @@ app.post('/contact/send-message', (req, res) => {
     const { author, sender, title, message } = req.body;
 
     if(author && sender && title && message) {
-        res.send('Your email has been sent!');
+        res.render('contact', { isSent: true });
     }
     else {
-        res.send('You can\'t leave fields empty!');
+        res.render('contact', { isError: true });
     }
 });
 
